@@ -14,6 +14,10 @@ module.exports = {
         test: /\.css$/i,
         use: ['style-loader', 'css-loader'],
       },
+      {
+        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        type: 'asset/resource',
+      },
     ],
   },
   devServer: {
@@ -21,12 +25,13 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      template: './src/index.html'
+      template: './src/index.html',
     }),
   ],
+  // eslint-disable-next-line no-dupe-keys
   output: {
     filename: '[name].bundle.js',
     path: path.resolve(__dirname, 'dist'),
-   clean: true,
+    clean: true,
   },
 };
