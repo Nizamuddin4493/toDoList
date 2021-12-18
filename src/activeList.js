@@ -9,16 +9,37 @@ const enterBtn = document.querySelector('.btn');
 
 let itemsArr = [];
 
+// eslint-disable-next-line func-names
+const handleItem = function (itemData) {
+  const items = document.querySelectorAll('.show-list');
+  items.forEach((item) => {
+    // eslint-disable-next-line eqeqeq
+    if (item.querySelector('.tast').getAttribute('data-time') == itemData.index) {
+      item.querySelector('[data-done]').addEventListener('change', (e) => {
+        e.preventDefault();
+        const itemIndex = itemsArr.indexOf(itemData);
+        const currentItem = itemsArr[itemIndex];
+        // eslint-disable-next-line no-unneeded-ternary
+        currentItem.completed = currentItem.completed ? false : true;
+        itemsArr.splice(itemIndex, 1, currentItem);
+        // eslint-disable-next-line no-use-before-define
+        saveLocalStorage(itemsArr);
+      });
+    }
+  });
+};
+
 const tasksListShow = (itemsArr) => {
   parentNode.innerHTML = '';
   if (itemsArr.length > 0) {
     itemsArr.forEach((item) => {
       parentNode.insertAdjacentHTML('beforeend',
         `<div class="show-list">
-      <input type="checkbox" class="check-box">
-      <p class="tast">${item.description}</p>
+        <input type="checkbox" data-done class="check-box">
+      <p class="tast" data-time="${item.index}">${item.description}</p>
       <img src="images/drag-drop.png" alt="" class="drag-drop">
       </div>`);
+      handleItem(item);
     });
   }
 };
@@ -47,6 +68,7 @@ document.addEventListener('DOMContentLoaded', () => {
       const itemObj = {
         description: inputVal,
         completed: false,
+        index: new Date().getTime(),
       };
       itemsArr.push(itemObj);
       saveLocalStorage(itemsArr);
@@ -57,7 +79,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Reload the Page
 function reload() {
-  // eslint-disable-next-line no-func-assign
+// eslint-disable-next-line no-func-assign
   reload = location.reload();
 }
 // Event listeners for reload.
