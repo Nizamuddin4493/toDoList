@@ -17,11 +17,6 @@ const removeAll = document.querySelector('.removeAll');
 
 let itemsArr = [];
 
-const removeAllItem = function (item) {
-  const removeIndex = itemsArr.indexOf(item);
-  itemsArr.splice(removeIndex, 1);
-};
-
 const removeItem = function (item) {
   const removeIndex = itemsArr.indexOf(item);
   itemsArr.splice(removeIndex, 1);
@@ -61,11 +56,14 @@ const handleItem = function (itemData) {
         // eslint-disable-next-line consistent-return
         removeAll.addEventListener('click', (e) => {
           e.preventDefault();
-          removeAllItem(item);
-          saveLocalStorage(itemsArr);
           // eslint-disable-next-line eqeqeq
-          return itemsArr.filter((item) => item == itemData.completed);
+          if (currentItem.completed == true) {
+            const removeIndex = itemsArr.indexOf(currentItem);
+            itemsArr.splice(removeIndex, 1);
+          }
+          saveLocalStorage(itemsArr);
         });
+        saveLocalStorage(itemsArr);
       });
       item.querySelector('[data-edit]').addEventListener('click', (e) => {
         e.preventDefault();
