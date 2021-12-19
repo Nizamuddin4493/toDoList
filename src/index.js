@@ -7,9 +7,13 @@ import search from './images/searching.png';
 import drag from './images/drag-drop.png';
 import unCheck from './images/unCheck.png';
 import checked from './images/checked.png';
+import trash from './images/trash.png';
 import {
   itemsArr, tasksListShow, getItems, saveLocalStorage,
 } from './activeList.js';
+import {
+  reload, removeAll, removeItem, updateItem,
+} from './AddRemove.js';
 
 const items = [
   {
