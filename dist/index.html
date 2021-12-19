@@ -10,24 +10,33 @@
     <div class="todolist">
       <section class="title">
         <h2>Today's To Do</h2>
-        <p class="img"></p>
+        <img src="images/searching.png" class="img" alt="">
       </section>
+      <span class="enter-err"></span>
+      <span class="edit"></span>
       <hr>
       <div class="form">
-        <input type="text" class="inputF" placeholder="Add to your list...">
-        <p class="enter-img"></p>
+        <form id="form">
+          <input type="text" class="inputF" placeholder="Add to your list...">
+          <i class="enter-icon"><button type="submit" class="btn"><img src="images/enter.png" alt="Ener" id="enter-data"></button></i>
+        </form>
       </div>
       <hr>
-      <div class="show-list">
-          <input type="checkbox" class="check-box">
-          <p class="tast">Be on time</p>
-          <p class="drag-drop"></p>
+        <div class="parent-node">
+          <!-- To Do List items are display here. -->
+          <!-- <div class="show-list">
+            <input type="checkbox" class="check-box">
+            <p class="tast">asdfsadfsadfs</p>
+            <img src="images/drag-drop.png" alt="" class="drag-drop">
+          </div> -->
+
+          
+        </div>
+        <input type="hidden" id="objIndex">
+        <hr>
+        <div class="clear"><button class="removeAll">Clear all completed</button></div>
       </div>
-      <span class="hello"></span>
-      <hr>
-      <div class="clear"><button>Clear all completed</button></div>
     </div>
-  </div>
- <div><img src="images/enter.png" alt=""></div>
+    <img src="images/trash.png" alt="" class="trash">
 </body>
 </html>
