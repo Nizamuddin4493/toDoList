@@ -15,28 +15,7 @@ import {
   reload, removeAll, removeItem, updateItem,
 } from './AddRemove.js';
 
-const items = [
-  {
-    description: 'Wake up at 6:00am, Take a BreakFast',
-    completed: false,
-    index: 1,
-  },
-  {
-    description: 'Go to work at 8:00am',
-    completed: false,
-    index: 3,
-  },
-  {
-    description: 'Take a lunch with your self.',
-    completed: false,
-    index: 2,
-  },
-  {
-    description: 'Goto Bed At 9:30 pm',
-    completed: false,
-    index: 4,
-  },
-];
+const items = [];
 
 const parentNode = document.querySelector('.parent-node');
 

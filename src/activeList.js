@@ -17,6 +17,11 @@ const removeAll = document.querySelector('.removeAll');
 
 let itemsArr = [];
 
+const removeAllItem = function (item) {
+  const removeIndex = itemsArr.indexOf(item);
+  itemsArr.splice(removeIndex, 1);
+};
+
 const removeItem = function (item) {
   const removeIndex = itemsArr.indexOf(item);
   itemsArr.splice(removeIndex, 1);
@@ -53,16 +58,14 @@ const handleItem = function (itemData) {
           item.querySelector('.drag-drop').style.display = 'none';
           item.querySelector('.trash').style.display = 'flex';
         }
+        // eslint-disable-next-line consistent-return
         removeAll.addEventListener('click', (e) => {
           e.preventDefault();
-          // eslint-disable-next-line eqeqeq
-          if (currentItem.completed == true) {
-            const removeIndex = itemsArr.indexOf(currentItem);
-            itemsArr.splice(removeIndex, 1);
-          }
+          removeAllItem(item);
           saveLocalStorage(itemsArr);
+          // eslint-disable-next-line eqeqeq
+          return itemsArr.filter((item) => item == itemData.completed);
         });
-        saveLocalStorage(itemsArr);
       });
       item.querySelector('[data-edit]').addEventListener('click', (e) => {
         e.preventDefault();
@@ -88,7 +91,7 @@ const tasksListShow = (itemsArr) => {
     itemsArr.forEach((item) => {
       parentNode.insertAdjacentHTML('beforeend',
         `<div class="show-list">
-        <input type="checkbox" data-done class="check-box">
+        <input type="checkbox" data-done class="check-box" autocomplete="off">
       <p class="tast" data-edit data-time="${item.index}">${item.description}</p>
       <img src="images/drag-drop.png" alt="" class="drag-drop">
       <img src="images/trash.png" alt="" data-delete class="trash">
