@@ -1,6 +1,6 @@
 # ToDo List / Daily Tasks
 
-> This is The Project of To Do List / Daily Tasks build in JavaScript with using the  webpack Plugins. In this site a user can write his/her daily task, delete one or more tasks at a time, and can refrash all the task from To Do list.  
+> This is The Project of To Do List / Daily Tasks build in JavaScript with using the webpack Plugins. In this site a user can write his/her daily task, delete one or more tasks at a time, and can refrash all the task from To Do list.
 
 ![screenshot](src/images/Todo-List-img.png)
 
@@ -8,7 +8,7 @@ Additional description: This project is only built with Html and CSS.
 
 ## Live Link to this site
 
-[ToDo Tasks](https://github.com/Nizamuddin4493/toDoList#readme)
+[ToDo Tasks](https://nizamuddin4493.github.io/toDoList/dist/index.html)
 
 ## Built With
 
@@ -18,8 +18,7 @@ Additional description: This project is only built with Html and CSS.
 
 ## Getting Started
 
-This is The Project of To Do List / Daily Tasks build in JavaScript with using the  webpack Plugins. In this site a user can write his/her daily task, delete one or more tasks at a time, and can refrash all the task from To Do list.  
-
+This is The Project of To Do List / Daily Tasks build in JavaScript with using the webpack Plugins. In this site a user can write his/her daily task, delete one or more tasks at a time, and can refrash all the task from To Do list.
 
 👤 Nizamuddin Ahmadzai
 
